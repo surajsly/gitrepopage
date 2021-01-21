@@ -1,5 +1,6 @@
 import "./App.css";
 import { useState, useEffect } from "react";
+import { fetchBaseInfo } from "./components/api";
 
 function App() {
   const [baseUrl, setbaseUrl] = useState(
@@ -8,11 +9,9 @@ function App() {
   const [RepInfo, setRepInfo] = useState(null);
 
   useEffect(async () => {
-    const response = await fetch(baseUrl);
-    const data = await response.json();
-    console.log(data);
+    const data = await fetchBaseInfo(baseUrl);
     setRepInfo(data);
-  });
+  }, RepInfo);
 
   return (
     <div className="App">
