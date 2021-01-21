@@ -2,6 +2,7 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import { fetchBaseInfo, fetchIssueList } from "./components/api";
 import GithubIssueList from "./components/GithubIssueList";
+import Showissue from "./components/Showissue";
 
 function App() {
   const [baseUrl, setbaseUrl] = useState(
@@ -23,6 +24,7 @@ function App() {
         <h5>Open Issue{RepInfo?.open_issues}</h5>
       </header>
       <GithubIssueList />
+      <Showissue />
     </div>
   );
 }

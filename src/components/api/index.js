@@ -13,3 +13,12 @@ export const fetchIssueList = async () => {
   console.log(data);
   return data;
 };
+
+export const fetchIssue = async () => {
+  const response = await fetch(
+    "https://api.github.com/repos/angular/angular/issues/40507"
+  );
+  const data = await response.json();
+  console.log(data);
+  return data;
+};
