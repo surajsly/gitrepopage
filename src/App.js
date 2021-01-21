@@ -1,6 +1,7 @@
 import "./App.css";
 import { useState, useEffect } from "react";
-import { fetchBaseInfo } from "./components/api";
+import { fetchBaseInfo, fetchIssueList } from "./components/api";
+import GithubIssueList from "./components/GithubIssueList";
 
 function App() {
   const [baseUrl, setbaseUrl] = useState(
@@ -10,8 +11,9 @@ function App() {
 
   useEffect(async () => {
     const data = await fetchBaseInfo(baseUrl);
+    fetchIssueList();
     setRepInfo(data);
-  }, RepInfo);
+  }, []);
 
   return (
     <div className="App">
@@ -20,6 +22,7 @@ function App() {
         <h2>{RepInfo?.full_name}</h2>
         <h5>Open Issue{RepInfo?.open_issues}</h5>
       </header>
+      <GithubIssueList />
     </div>
   );
 }
