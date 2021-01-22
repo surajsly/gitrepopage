@@ -22,11 +22,30 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>github issue page assignemet</h1>
-        <h2>{RepInfo?.full_name}</h2>
-        <h5>Open Issue{RepInfo?.open_issues}</h5>
-      </header>{" "}
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-11">
+            <header className="App-header">
+              <p className="repo__name">
+                <a href={RepInfo?.html_url}>
+                  <strong>{RepInfo?.full_name}</strong>
+                </a>
+              </p>
+              <p class="repo__info">
+                <span>
+                  <strong>Open Issue</strong> {RepInfo?.open_issues}
+                </span>
+                <span>
+                  <strong>Watch</strong> {RepInfo?.watchers_count}
+                </span>
+                <span>
+                  <strong>Fork</strong> {RepInfo?.forks_count}
+                </span>
+              </p>
+            </header>
+          </div>
+        </div>
+      </div>{" "}
       <Router history={history}>
         <Switch>
           <Route path="/" exact component={GithubIssueList} />
