@@ -23,7 +23,11 @@ function Showissue() {
         <div class="col-md-12">
           <div class="card">
             <p class="card-header">
-              @{issue?.user.login}
+              <span class="user__name">
+                <a href={issue?.user.html_url}>
+                  <strong>@{issue?.user.login}</strong>
+                </a>
+              </span>
               <IssueLabels labels={issue?.labels} />
             </p>
             <div class="card-body">

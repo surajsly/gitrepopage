@@ -9,12 +9,11 @@ import { Router, Route, Switch } from "react-router-dom";
 import history from "./history";
 
 function App() {
-  const [baseUrl, setbaseUrl] = useState(
-    "https://api.github.com/repos/angular/angular"
-  );
+  const [baseUrl, setbaseUrl] = useState(null);
   const [RepInfo, setRepInfo] = useState(null);
 
   useEffect(async () => {
+    setbaseUrl("https://api.github.com/repos/angular/angular");
     const data = await fetchBaseInfo(baseUrl);
     fetchIssueList();
     setRepInfo(data);
@@ -22,16 +21,16 @@ function App() {
 
   return (
     <div className="App">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-11">
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-md-11">
             <header className="App-header">
               <p className="repo__name">
                 <a href={RepInfo?.html_url}>
                   <strong>{RepInfo?.full_name}</strong>
                 </a>
               </p>
-              <p class="repo__info">
+              <p className="repo__info">
                 <span>
                   <strong>Open Issue</strong> {RepInfo?.open_issues}
                 </span>

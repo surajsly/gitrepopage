@@ -30,7 +30,7 @@ function IssueLabels({ labels }) {
     return <div></div>;
   }
   return (
-    <div className="issue__labels">
+    <span className="issue__labels">
       {labels.map((label) => (
         <span
           key={label.id}
@@ -44,7 +44,7 @@ function IssueLabels({ labels }) {
           {label.name}
         </span>
       ))}
-    </div>
+    </span>
   );
 }
 

@@ -61,3 +61,15 @@
   background-color: #e5e5e5;
   width: 95%;
 }
+.octicon {
+  margin-right: 10px;
+}
+
+.bottom__button {
+  margin: 25px;
+  padding: 5px;
+}
+
+.bottom__button button {
+  margin-left: 10px;
+}
