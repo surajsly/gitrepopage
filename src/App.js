@@ -31,17 +31,19 @@ function App() {
                   <strong>{RepInfo?.full_name}</strong>
                 </a>
               </p>
-              <p className="repo__info">
-                <span>
-                  <strong>Open Issue</strong> {RepInfo?.open_issues}
-                </span>
-                <span>
-                  <strong>Watch</strong> {RepInfo?.watchers_count}
-                </span>
-                <span>
-                  <strong>Fork</strong> {RepInfo?.forks_count}
-                </span>
-              </p>
+              <div class="container-fluid">
+                <p className="row repo__info">
+                  <span className="col-md-2 col-xs-12">
+                    <strong>Open Issue</strong> {RepInfo?.open_issues}
+                  </span>
+                  <span className="col-md-2 col-xs-12">
+                    <strong>Watch</strong> {RepInfo?.watchers_count}
+                  </span>
+                  <span className="col-md-2 col-xs-12">
+                    <strong>Fork</strong> {RepInfo?.forks_count}
+                  </span>
+                </p>
+              </div>
             </header>
           </div>
         </div>

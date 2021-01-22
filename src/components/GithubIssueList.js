@@ -87,9 +87,17 @@ function GithubIssueList() {
                     ></path>
                   </svg>
                   <span className="issue__number">#{item?.number}</span>
-                  <span className="issue__title">{item?.title}</span>
+                  <span className="issue__title">{shorten(item?.title)}</span>
                 </Link>
-                <p className="issue__summary">{shorten(item?.body)}</p>
+                <p className="issue_meta">
+                  opened at {item?.created_at} By{" "}
+                  <a
+                    href={item?.user.html_url}
+                    style={{ color: "inherit", textDecoration: "inherit" }}
+                  >
+                    @{item?.user.login}
+                  </a>
+                </p>
                 <IssueLabels labels={item?.labels} />
               </div>
             </div>

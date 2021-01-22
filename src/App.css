@@ -1,6 +1,7 @@
 .repo__name {
   text-decoration: none;
   font-weight: 400 !important;
+  font-size: 25px;
 }
 
 .repo__info {
@@ -8,10 +9,6 @@
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   font-size: 14px;
   line-height: 1.5;
-}
-
-.repo__info span {
-  margin-left: 10px;
 }
 
 .octicon {

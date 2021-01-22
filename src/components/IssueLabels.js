@@ -1,4 +1,5 @@
 import React from "react";
+import "./IssueLabels.css";
 
 function IssueLabels({ labels }) {
   function invertColor(hex) {
@@ -27,7 +28,7 @@ function IssueLabels({ labels }) {
   }
 
   if (!labels) {
-    return <div></div>;
+    return <span></span>;
   }
   return (
     <span className="issue__labels">
