@@ -14,9 +14,9 @@ export const fetchIssueList = async () => {
   return data;
 };
 
-export const fetchIssue = async () => {
+export const fetchIssue = async (id) => {
   const response = await fetch(
-    "https://api.github.com/repos/angular/angular/issues/40507"
+    `https://api.github.com/repos/angular/angular/issues/${id}`
   );
   const data = await response.json();
   console.log(data);

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchIssueList } from "./api";
+import Showissue from "./Showissue";
+import { Link } from "react-router-dom";
 
 function GithubIssueList() {
   const [items, setitems] = useState(null);
@@ -11,14 +13,14 @@ function GithubIssueList() {
   }, []);
 
   if (!items) {
-    return <h1>a</h1>;
+    return <h1>LOADING...</h1>;
   }
   return (
     <div>
       <div>
         {items.map((item) => (
           <p>
-            <a href={item?.url}>{item?.title}</a>
+            <Link to={`/issue/${item?.number}`}>{item?.title}</Link>
           </p>
         ))}
       </div>
