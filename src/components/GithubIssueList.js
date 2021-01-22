@@ -10,16 +10,25 @@ import "./GitIssueList.css";
 function GithubIssueList() {
   const [items, setitems] = useState(null);
   const [page, setpage] = useState(1);
+  const [search, setsearch] = useState("node");
 
   useEffect(async () => {
-    const data = await fetchIssueList(page);
+    const data = await fetchIssueList(search, page);
     setitems(data.items);
     console.log(items);
   }, []);
 
   const handleNextClick = async () => {
     setpage(page + 1);
-    const data = await fetchIssueList(page);
+    const data = await fetchIssueList(search, page);
+    setitems(data.items);
+    console.log(items);
+  };
+
+  const handlesearchClick = async (e) => {
+    e.preventDefault();
+    setsearch(e.target.search.value);
+    const data = await fetchIssueList(search, 1);
     setitems(data.items);
     console.log(items);
   };
@@ -27,7 +36,7 @@ function GithubIssueList() {
   const handleprevClick = async () => {
     if (page > 1) {
       setpage(page - 1);
-      const data = await fetchIssueList(page);
+      const data = await fetchIssueList(search, page);
       setitems(data.items);
       console.log(items);
     }
@@ -39,6 +48,26 @@ function GithubIssueList() {
   return (
     <div class="container-fluid">
       <div class="row">
+        <div class="col-md-11 mt-2">
+          <form onSubmit={handlesearchClick} class=" input-group mb-3 ">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Search"
+              id="search"
+              name="search"
+              class="form-control"
+            />
+            <button
+              type="submit"
+              value="send"
+              class="btn btn-outline-secondary"
+              id="button-addon2"
+            >
+              Search
+            </button>
+          </form>
+        </div>
         <div class="col-md-11">
           {items.map((item) => (
             <div key={item?.id} className="issue">

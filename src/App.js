@@ -9,11 +9,12 @@ import { Router, Route, Switch } from "react-router-dom";
 import history from "./history";
 
 function App() {
-  const [baseUrl, setbaseUrl] = useState(null);
+  const [baseUrl, setbaseUrl] = useState(
+    "https://api.github.com/repos/angular/angular"
+  );
   const [RepInfo, setRepInfo] = useState(null);
 
   useEffect(async () => {
-    setbaseUrl("https://api.github.com/repos/angular/angular");
     const data = await fetchBaseInfo(baseUrl);
     fetchIssueList();
     setRepInfo(data);
